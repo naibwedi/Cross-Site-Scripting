@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <!-- Intentionally unsafe: allowing raw content to be displayed -->
+    <p>{{ post.content | safe }}</p>
+
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments %}
+            <!-- Intentionally unsafe: allowing raw comment content -->
+            <li>{{ comment.content | safe }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Add a Comment</h3>
+    <form method="POST">
+        <textarea name="content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
