@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  victim:
+    build:
+      context: ./victim_app  # Path to the victim app directory
+    ports:
+      - "5000:5000"  # Expose port 5000 on the host
+    volumes:
+      - ./victim_app:/app  # Mount the local victim_app directory to /app in the container
+    environment:
+      - FLASK_APP=app.py  # Set the Flask app entry point
+
+  attacker:
+    build:
+      context: ./attacker_server  # Path to the attacker server directory
+    ports:
+      - "5001:5001"  # Expose port 5001 on the host
+    volumes:
+      - ./attacker_server:/attacker_server  # Mount the local attacker_server directory to /attacker_server in the container
+    environment:
+      - FLASK_APP=attacker_server.py  # Set the Flask app entry point
+      - FLASK_ENV=development  # Optional: Set to development for debug mode
+
+networks:
+  default:
+    driver: bridge
