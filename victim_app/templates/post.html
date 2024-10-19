@@ -4,7 +4,7 @@
     <div class="card-body" style="background-color: #f8f9fa; border-radius: 10px;">
         <h2 class="card-title" style="color: #007bff;">{{ post.title }}</h2>
         <!-- Make the content vulnerable to XSS -->
-        <p>{{ post.content | safe }}</p>
+        <p>{{ post.content }}</p>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
 <ul class="list-group">
     {% for comment in comments %}
     <!-- Make comments vulnerable to XSS -->
-    <li class="list-group-item shadow-sm" style="border-radius: 10px;">{{ comment.content | safe }}</li>
+    <li class="list-group-item shadow-sm" style="border-radius: 10px;">{{ comment.content}}</li>
     {% endfor %}
 </ul>
 {% else %}
