@@ -4,6 +4,13 @@
 
 This project demonstrates the exploitation of a **Cross-Site Scripting (XSS)** vulnerability in a web application using **Flask**. It includes both a vulnerable victim application and an attacker server to simulate an XSS attack, including credential theft through a fake login page.
 
+## Design view
+### Homepage 
+![image](https://github.com/user-attachments/assets/f1870b33-8832-4dda-8552-2b40cfa8f122)
+
+### Add post
+![image](https://github.com/user-attachments/assets/5283f7f0-e966-4470-b369-1b4efeb98a64)
+
 ## Project Structure
 
 ``````bash
